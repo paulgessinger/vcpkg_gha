@@ -39,9 +39,7 @@ jobs:
         run: >
           cmake --version
           && mkdir build 
-          && cmake -B build -S $PWD
-              -GNinja 
-              -DVCPKG_TARGET_TRIPLET=x64-osx
+          && cmake -B build -S $PWD -GNinja -DVCPKG_TARGET_TRIPLET=x64-osx
           && ls -al
           && ls -al vcpkg
       - name:
