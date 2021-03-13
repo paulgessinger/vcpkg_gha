@@ -30,9 +30,9 @@ jobs:
           path: |
             /Users/runner/.cache/vcpkg/archives/
           key: ${{ runner.os }}
-      - name: Install dependencies
-        run: >
-          vcpkg install glfw3 
+      # - name: Install dependencies
+        # run: >
+          # vcpkg install glfw3 
       - name: Configure
         run: >
           ls /usr/local/share/vcpkg
