@@ -22,13 +22,13 @@ jobs:
           submodules: true
 
       - name: Install dependencies
-        if: startsWith(matrix.os, "macos")
+        if: startsWith(matrix.os, 'macos')
         run: brew install ninja
       - name: Install dependencies
-        if: startsWith(matrix.os, "windows")
+        if: startsWith(matrix.os, 'windows')
         run: choco install ninja
       - name: Install dependencies
-        if: startsWith(matrix.os, "ubuntu")
+        if: startsWith(matrix.os, 'ubuntu')
         run: apt-get install -y ninja xinerama xcursor xorg libglu1-mesa
 
       - name: Install vcpkg
