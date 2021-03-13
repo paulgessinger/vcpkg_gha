@@ -24,6 +24,8 @@ jobs:
       HOMEBREW_NO_INSTALL_CLEANUP: 1
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: true
       - name: Cache multiple paths
         uses: actions/cache@v2
         with:
