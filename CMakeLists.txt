@@ -5,6 +5,8 @@ set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/scripts/buildsystems/
 
 project(vcpkg_test)
 
+set(CMAKE_CXX_STANDARD 17)
+
 find_package(glfw3 CONFIG REQUIRED)
 find_package(fmt CONFIG REQUIRED)
 
