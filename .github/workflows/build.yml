@@ -30,7 +30,7 @@ jobs:
         run: >
           brew install ninja
       - name: Install vcpkg
-        uses: lukka/run-vcpkg@v6
+        uses: lukka/run-vcpkg@v7.1
         with:
           setupOnly: true
           vcpkgDirectory: '${{ github.workspace }}/vcpkg'
