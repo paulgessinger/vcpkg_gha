@@ -32,8 +32,7 @@ jobs:
           key: ${{ runner.os }}
       - name: Install dependencies
         run: >
-          brew install ninja
-          && vcpkg install glm glfw3 sol2 fmt lua[cpp] entt nlohmann-json
+          vcpkg install glfw3 
       - name: Configure
         run: >
           ls /usr/local/share/vcpkg
@@ -44,7 +43,6 @@ jobs:
               -B build
               -GNinja 
               -DVCPKG_TARGET_TRIPLET=x64-osx
-              -DCMAKE_TOOLCHAIN_FILE=/usr/local/share/vcpkg/scripts/buildsystems/vcpkg.cmake
       - name:
         working-directory: build
         run: >
