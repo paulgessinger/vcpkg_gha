@@ -10,25 +10,25 @@ jobs:
   job:
     name: ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
-  strategy:
-    matrix:
-      os:
-        - macos-latest
-        - windows-latest
-  steps:
-    - uses: actions/checkout@v2
-      with:
-        submodules: true
-    - name: Install vcpkg
-      uses: lukka/run-vcpkg@v7
-      with:
-        setupOnly: true
-        vcpkgDirectory: '${{ github.workspace }}/vcpkg'
-        appendedCacheKey: ${{ hashFiles( '**/vcpkg.json' ) }}
-        additionalCachedPaths: ${{ github.workspace }}/build/vcpkg_installed
-    - name: Configure
-      run: >
-        cmake -B build -S $PWD
-    - name: Build
-      run: >
-        cmake --build build
+    strategy:
+      matrix:
+        os:
+          - macos-latest
+          - windows-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Install vcpkg
+        uses: lukka/run-vcpkg@v7
+        with:
+          setupOnly: true
+          vcpkgDirectory: '${{ github.workspace }}/vcpkg'
+          appendedCacheKey: ${{ hashFiles( '**/vcpkg.json' ) }}
+          additionalCachedPaths: ${{ github.workspace }}/build/vcpkg_installed
+      - name: Configure
+        run: >
+          cmake -B build -S $PWD
+      - name: Build
+        run: >
+          cmake --build build
