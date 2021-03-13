@@ -40,7 +40,7 @@ jobs:
           cmake --version
           && mkdir build 
           && cmake 
-              -S .
+              -S $PWD
               -B build
               -GNinja 
               -DVCPKG_TARGET_TRIPLET=x64-osx
