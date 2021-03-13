@@ -41,7 +41,8 @@ jobs:
           && ls /usr/local/share/vcpkg/scripts
           && ls /usr/local/share/vcpkg/scripts/buildsystems
           && mkdir build 
-          && cmake .
+          && cmake 
+              -S .
               -B build
               -GNinja 
               -DVCPKG_TARGET_TRIPLET=x64-osx
