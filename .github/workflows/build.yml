@@ -18,17 +18,19 @@ jobs:
   #   steps:
   #     - uses: actions/checkout@v2
 
-  macos:
-    runs-on: macos-10.15
-    env:
-      HOMEBREW_NO_INSTALL_CLEANUP: 1
+  jobs:
+    job:
+      name: ${{ matrix.os }}
+      runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - macos-latest
+          - windows-latest
     steps:
       - uses: actions/checkout@v2
         with:
           submodules: true
-      - name: Install dependencies
-        run: >
-          brew install ninja
       - name: Install vcpkg
         uses: lukka/run-vcpkg@v7
         with:
@@ -38,8 +40,7 @@ jobs:
           additionalCachedPaths: ${{ github.workspace }}/build/vcpkg_installed
       - name: Configure
         run: >
-          cmake -B build -S $PWD -GNinja 
+          cmake -B build -S $PWD
       - name: Build
-        working-directory: build
         run: >
-          ninja
+          cmake --build build
