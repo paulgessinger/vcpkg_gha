@@ -30,8 +30,7 @@ jobs:
       - name: Install dependencies
         if: startsWith(matrix.os, 'ubuntu')
         run: >
-          sudo apt-get update
-          && sudo apt-get install -y libxinerama-dev libxcursor-dev xorg libglu1-mesa
+          sudo apt-get install -y make libxinerama-dev libxcursor-dev xorg-dev libglu1-mesa
 
       - name: Install vcpkg
         uses: lukka/run-vcpkg@v7
