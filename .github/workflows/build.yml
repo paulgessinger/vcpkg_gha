@@ -37,9 +37,7 @@ jobs:
           # vcpkg install glfw3 
       - name: Configure
         run: >
-          ls /usr/local/share/vcpkg
-          && ls /usr/local/share/vcpkg/scripts
-          && ls /usr/local/share/vcpkg/scripts/buildsystems
+          cmake --version
           && mkdir build 
           && cmake 
               -S .
