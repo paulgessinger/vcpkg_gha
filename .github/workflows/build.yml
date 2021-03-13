@@ -21,17 +21,17 @@ jobs:
         with:
           submodules: true
 
-      - name: Install dependencies
-        if: startsWith(matrix.os, 'macos')
-        run: brew install ninja
-      - name: Install dependencies
-        if: startsWith(matrix.os, 'windows')
-        run: choco install ninja
+      # - name: Install dependencies
+        # if: startsWith(matrix.os, 'macos')
+        # run: brew install ninja
+      # - name: Install dependencies
+        # if: startsWith(matrix.os, 'windows')
+        # run: choco install ninja
       - name: Install dependencies
         if: startsWith(matrix.os, 'ubuntu')
         run: >
           sudo apt-get update
-          && sudo apt-get install -y ninja-build libxinerama-dev libxcursor-dev xorg libglu1-mesa
+          && sudo apt-get install -y libxinerama-dev libxcursor-dev xorg libglu1-mesa
 
       - name: Install vcpkg
         uses: lukka/run-vcpkg@v7
@@ -42,7 +42,7 @@ jobs:
           additionalCachedPaths: ${{ github.workspace }}/build/vcpkg_installed
       - name: Configure
         run: >
-          cmake -B build -S $PWD -GNinja
+          cmake -B build -S $PWD
       - name: Build
         run: >
           cmake --build build
