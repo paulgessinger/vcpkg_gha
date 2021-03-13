@@ -32,6 +32,7 @@ jobs:
       - name: Install vcpkg
         uses: lukka/run-vcpkg@v6
         with:
+          setupOnly: true
           vcpkgDirectory: '${{ github.workspace }}/vcpkg'
           appendedCacheKey: ${{ hashFiles( '**/vcpkg.json' ) }}
           additionalCachedPaths: ${{ github.workspace }}/build/vcpkg_installed
