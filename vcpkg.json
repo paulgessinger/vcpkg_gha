@@ -8,6 +8,6 @@
     "nlohmann-json",
     "entt",
     "sol2",
-    "lua[cpp]"
+    "lua"
   ]
 }
