@@ -30,7 +30,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: |
-            /Users/runner/.cache/vcpkg/archives/
+            /Users/runner/.cache/vcpkg
           key: ${{ runner.os }}
       # - name: Install dependencies
         # run: >
@@ -42,6 +42,8 @@ jobs:
           && cmake -B build -S $PWD
               -GNinja 
               -DVCPKG_TARGET_TRIPLET=x64-osx
+          && ls -al
+          && ls -al vcpkg
       - name:
         working-directory: build
         run: >
